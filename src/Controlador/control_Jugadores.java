@@ -6,19 +6,30 @@
 package Controlador;
 
 import Modelo.BaseDatos;
+import Modelo.Jugador;
+import Vista.Inicio;
 
 /**
  *
  * @author Alejandra Becerra
  */
-public class TallerDS_2 {
-
-    public TallerDS_2() {
+public class control_Jugadores {
+    
+    
+    public control_Jugadores() {
         
     }
     
+    public void crear(Jugador jug) throws Exception{
+        if(jug == null){
+            throw  new Exception("Los datos no estan agregados");
+        }
+    }
+    
+    
     public static void main(String[] args) {
-        new BaseDatos();
+        new Inicio();
+//        new BaseDatos();
     }
     
 }
