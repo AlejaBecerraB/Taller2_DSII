@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import Modelo.BaseDatos;
+
 /**
  *
  * @author Alejandra Becerra
@@ -12,10 +14,11 @@ package Controlador;
 public class TallerDS_2 {
 
     public TallerDS_2() {
+        
     }
     
     public static void main(String[] args) {
-        
+        new BaseDatos();
     }
     
 }
