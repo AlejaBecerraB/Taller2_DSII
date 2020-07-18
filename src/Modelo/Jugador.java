@@ -13,12 +13,12 @@ public class Jugador {
     int cedula;
     String nombre, apellido, posicion;
 
-    public Jugador(int cedula, String nombre, String apellido, String posicion) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.posicion = posicion;
-    }
+//    public Jugador(int cedula, String nombre, String apellido, String posicion) {
+//        this.cedula = cedula;
+//        this.nombre = nombre;
+//        this.apellido = apellido;
+//        this.posicion = posicion;
+//    }
 
     public int getCedula() {
         return cedula;
