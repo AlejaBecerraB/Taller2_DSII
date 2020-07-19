@@ -20,8 +20,7 @@ public class control_Crear {
     ArrayList cedula = new ArrayList();
             
     public control_Crear() {
-        new BaseDatos();
-        new Inicio();
+        
         
     }
     
@@ -60,7 +59,9 @@ public class control_Crear {
     
     
     public static void main(String[] args) {
-        new control_Crear();
+        new BaseDatos();
+        new Inicio();
+        
 
     }
     
