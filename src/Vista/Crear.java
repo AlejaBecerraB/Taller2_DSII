@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import Controlador.control_Jugadores;
+import Controlador.control_Crear;
 import Modelo.Jugador;
 import javax.swing.JOptionPane;
 
@@ -158,18 +158,28 @@ public class Crear extends javax.swing.JFrame {
             jug.setApellido(jt_apellido.getText());
             jug.setPosicion(jt_posicion.getText());
 
-            control_Jugadores cJug = new control_Jugadores();
+            control_Crear cJug = new control_Crear();
             cJug.crear(jug);
-            JOptionPane.showMessageDialog(rootPane, "Creado Exitosamente");
+            Ventana_Emergente ve =new Ventana_Emergente(); 
+            ve.jl_titulo.setText("MENSAJE");
+            ve.jl_mensaje.setText("Creado Exitosamente");
+//            JOptionPane.showMessageDialog(rootPane, "Creado Exitosamente");
+            
             
             }catch (NumberFormatException numb) {
-                System.out.println("Error " +numb );
-                JOptionPane.showMessageDialog(rootPane, "La cedula debe ser n úmerica","Advertencia",JOptionPane.ERROR_MESSAGE);
+//                System.out.println("Error " +numb );
+                Ventana_Emergente ve =new Ventana_Emergente(); 
+                ve.jl_mensaje.setText("La cedula debe ser númerica");
+                
+//                JOptionPane.showMessageDialog(rootPane, "La cedula debe ser númerica","Advertencia",JOptionPane.ERROR_MESSAGE);
             }
             
             catch (Exception e) {
-                System.out.println("Error " +e );
-                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Advertencia",JOptionPane.ERROR_MESSAGE);
+//                System.out.println("Error " +e );
+                Ventana_Emergente ve =new Ventana_Emergente(); 
+                ve.jl_mensaje.setText(e.getMessage());
+                
+//                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Advertencia",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jb_guardarActionPerformed
 

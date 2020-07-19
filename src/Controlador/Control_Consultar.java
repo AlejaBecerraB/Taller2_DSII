@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package Controlador;
 
 /**
  *
  * @author Alejandra Becerra
  */
-public class Insertar_informacion {
-    
-    Jugador j ;
-    
-    public Insertar_informacion() {
-        System.out.println("nombre " + j.getNombre());
-    }
+public class Control_Consultar {
     
 }

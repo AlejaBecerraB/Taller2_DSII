@@ -44,7 +44,7 @@ public class BaseDatos {
             System.out.println("El error es " + e);
         }
     }
-//insertar = conexion.prepareStatement("create table jugadores (cedula int primary key,nombre varchar(30),apellido varchar(30),posicion varchar(30))");
+    
     private void tablas() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -52,14 +52,15 @@ public class BaseDatos {
             insertar = conexion.prepareStatement("create table jugadores (cedula int primary key,nombre varchar(30),apellido varchar(30),posicion varchar(30))");
             insertar.executeUpdate();
             conexion.close();
-            System.out.println("Se ha creado la tabla de InfoEstudiante");
+            
         } catch (Exception e) {
+            
             System.out.println("e " + e);
             String error = "com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException";
             if (error.equalsIgnoreCase("com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException")) {
-                System.out.println("La tabla InfoEstudiante ya existe");
+                System.out.println("La tabla jugadores ya existe");
             } else {
-                System.out.println("El error es 2: " + error);
+                System.out.println("El error: " + error);
             }
         }
     }
