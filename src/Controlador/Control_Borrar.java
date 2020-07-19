@@ -5,10 +5,28 @@
  */
 package Controlador;
 
+import Modelo.validar_Informacion;
+import java.util.ArrayList;
+
 /**
  *
  * @author Alejandra Becerra
  */
 public class Control_Borrar {
+    validar_Informacion vi =new validar_Informacion();
+    ArrayList datos = new ArrayList();
+    
+    public Control_Borrar() {
+        
+        
+    }
+    public ArrayList llenar_ced(){
+        datos=vi.validar_cedula();
+        return datos;
+    }
+    public ArrayList llenar_datos(int ced){
+        datos=vi.datos(ced);
+        return datos;
+    }
     
 }

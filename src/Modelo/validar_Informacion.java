@@ -26,7 +26,7 @@ public class validar_Informacion {
     PreparedStatement insertar;
 
     public validar_Informacion() {
-        validar_cedula();
+        
     }
     
     
@@ -42,17 +42,34 @@ public class validar_Informacion {
             
             while (rs.next()){
                 cedulas.add(Integer.toString((int) rs.getObject(1)));
+                System.out.println("ced " + cedulas);
             }
-            
         } catch (Exception e) {
             System.out.println("Error " + e);
         }
         return cedulas;
     }
     
-    
+    public ArrayList datos(int cedula) {
+        ArrayList informacion = new ArrayList();
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            conexion = DriverManager.getConnection(url, "root", "");
+            
+            st = conexion.createStatement();
+            rs = st.executeQuery("select * from jugadores where cedula =" + cedula);
+            while(rs.next()){
+                informacion.add((String) rs.getObject(2));
+                informacion.add((String) rs.getObject(3));
+                informacion.add((String) rs.getObject(4));
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error Borrar " +e);
+        }
+        return informacion;
+    }
     public static void main(String[] args) {
         new validar_Informacion();
-        
     }
 }

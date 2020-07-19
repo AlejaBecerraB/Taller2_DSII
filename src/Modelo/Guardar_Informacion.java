@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 /**
  *
@@ -29,7 +28,6 @@ public class Guardar_Informacion {
         System.out.println("nombre " + j.getNombre());
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-        
             Connection c = DriverManager.getConnection (url, "root", "");
             insertar = c.prepareStatement("insert into jugadores (cedula,nombre,apellido,posicion) VALUES(?,?,?,?)");
 

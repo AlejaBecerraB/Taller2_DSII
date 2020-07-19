@@ -20,13 +20,10 @@ public class control_Crear {
     ArrayList cedula = new ArrayList();
             
     public control_Crear() {
-        
-        
     }
     
     public void crear(Jugador jug) throws Exception{
-        String mensaje=jug.getNombre();
-        //falta Comprobar q una cedula no se repita
+        
         if(jug == null){
             throw  new Exception("Los datos no estan agregados");
         }
@@ -47,10 +44,7 @@ public class control_Crear {
         validar_Informacion vi = new validar_Informacion();
         cedula=vi.validar_cedula();
         for (int i = 0; i < cedula.size(); i++) {
-            System.out.println("... " + cedula.get(i)  );
-            
             if(jug.getCedula()== Integer.parseInt((String) cedula.get(i)) ){
-                System.out.println("00000");
                 throw  new Exception("La cedula escrita ya existe en la base de datos.");
             } 
         }
@@ -61,10 +55,5 @@ public class control_Crear {
     public static void main(String[] args) {
         new BaseDatos();
         new Inicio();
-        
-
     }
-    
-
-    
 }

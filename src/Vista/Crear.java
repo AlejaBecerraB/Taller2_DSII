@@ -7,7 +7,6 @@ package Vista;
 
 import Controlador.control_Crear;
 import Modelo.Jugador;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -163,6 +162,8 @@ public class Crear extends javax.swing.JFrame {
             Ventana_Emergente ve =new Ventana_Emergente(); 
             ve.jl_titulo.setText("MENSAJE");
             ve.jl_mensaje.setText("Creado Exitosamente");
+            dispose(); 
+            new Inicio();
 //            JOptionPane.showMessageDialog(rootPane, "Creado Exitosamente");
             
             
