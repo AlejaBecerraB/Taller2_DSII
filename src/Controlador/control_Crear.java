@@ -43,8 +43,10 @@ public class control_Crear {
         
         validar_Informacion vi = new validar_Informacion();
         cedula=vi.validar_cedula();
+        
         for (int i = 0; i < cedula.size(); i++) {
             if(jug.getCedula()== Integer.parseInt((String) cedula.get(i)) ){
+                System.out.println("existe");
                 throw  new Exception("La cedula escrita ya existe en la base de datos.");
             } 
         }

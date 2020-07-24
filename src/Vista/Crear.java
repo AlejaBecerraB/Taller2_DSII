@@ -19,9 +19,15 @@ public class Crear extends javax.swing.JFrame {
      */
     public Crear() {
         initComponents();
+        jl_mensaje.setVisible(false);
         setVisible(true);
     }
-
+    public void limpiar(){
+        jt_cedula.setText("");
+        jt_nombre.setText("");
+        jt_apellido.setText("");
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,10 +43,11 @@ public class Crear extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jt_nombre = new javax.swing.JTextField();
         jt_apellido = new javax.swing.JTextField();
-        jt_posicion = new javax.swing.JTextField();
         jb_guardar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jt_cedula = new javax.swing.JTextField();
+        jl_mensaje = new javax.swing.JLabel();
+        jt_posicion = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -63,8 +70,6 @@ public class Crear extends javax.swing.JFrame {
             }
         });
 
-        jt_posicion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         jb_guardar.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jb_guardar.setText("GUARDAR");
         jb_guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,19 +83,30 @@ public class Crear extends javax.swing.JFrame {
 
         jt_cedula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        jl_mensaje.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jl_mensaje.setForeground(new java.awt.Color(255, 0, 0));
+        jl_mensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_mensaje.setText("jLabel5");
+
+        jt_posicion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jt_posicion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Defenesa", "Arquero", "Delantero" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jb_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jt_posicion, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jt_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
@@ -102,8 +118,9 @@ public class Crear extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jt_cedula)
-                            .addComponent(jt_nombre))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                            .addComponent(jt_nombre)))
+                    .addComponent(jl_mensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,12 +138,14 @@ public class Crear extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jt_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jl_mensaje)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jb_guardar)
-                .addGap(28, 28, 28))
+                .addGap(10, 10, 10))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,72 +174,33 @@ public class Crear extends javax.swing.JFrame {
             jug.setCedula(Integer.parseInt(jt_cedula.getText()));
             jug.setNombre(jt_nombre.getText());
             jug.setApellido(jt_apellido.getText());
-            jug.setPosicion(jt_posicion.getText());
+            jug.setPosicion((String) jt_posicion.getSelectedItem());
 
             control_Crear cJug = new control_Crear();
             cJug.crear(jug);
+            
             Ventana_Emergente ve =new Ventana_Emergente(); 
             ve.jl_titulo.setText("MENSAJE");
-            ve.jl_mensaje.setText("Creado Exitosamente");
-            dispose(); 
-            new Inicio();
-//            JOptionPane.showMessageDialog(rootPane, "Creado Exitosamente");
-            
+            ve.jl_mensaje.setText("DESEAS CREAR OTRO JUGADOR");
+            limpiar();
+            dispose();
             
             }catch (NumberFormatException numb) {
-//                System.out.println("Error " +numb );
-                Ventana_Emergente ve =new Ventana_Emergente(); 
-                ve.jl_mensaje.setText("La cedula debe ser númerica");
-                
-//                JOptionPane.showMessageDialog(rootPane, "La cedula debe ser númerica","Advertencia",JOptionPane.ERROR_MESSAGE);
+                jl_mensaje.setVisible(true);
+                jl_mensaje.setText("La cedula debe ser númerica");
             }
             
             catch (Exception e) {
-//                System.out.println("Error " +e );
-                Ventana_Emergente ve =new Ventana_Emergente(); 
-                ve.jl_mensaje.setText(e.getMessage());
-                
-//                JOptionPane.showMessageDialog(rootPane, e.getMessage(),"Advertencia",JOptionPane.ERROR_MESSAGE);
+                jl_mensaje.setVisible(true);
+                jl_mensaje.setText(e.getMessage());
         }
     }//GEN-LAST:event_jb_guardarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Crear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Crear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Crear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Crear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Crear().setVisible(true);
-            }
-        });
-    }
+   
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -229,9 +209,10 @@ public class Crear extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jb_guardar;
+    private javax.swing.JLabel jl_mensaje;
     public javax.swing.JTextField jt_apellido;
     public javax.swing.JTextField jt_cedula;
     public javax.swing.JTextField jt_nombre;
-    public javax.swing.JTextField jt_posicion;
+    private javax.swing.JComboBox jt_posicion;
     // End of variables declaration//GEN-END:variables
 }
