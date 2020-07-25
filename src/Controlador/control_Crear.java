@@ -18,10 +18,7 @@ import java.util.ArrayList;
  */
 public class control_Crear {
     ArrayList cedula = new ArrayList();
-            
-    public control_Crear() {
-    }
-    
+        
     public void crear(Jugador jug) throws Exception{
         
         if(jug == null){
@@ -54,8 +51,4 @@ public class control_Crear {
     }
     
     
-    public static void main(String[] args) {
-        new BaseDatos();
-        new Inicio();
-    }
 }

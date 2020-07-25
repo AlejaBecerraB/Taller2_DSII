@@ -69,7 +69,4 @@ public class validar_Informacion {
         }
         return informacion;
     }
-    public static void main(String[] args) {
-        new validar_Informacion();
-    }
 }
